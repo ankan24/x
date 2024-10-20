@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/signup" method="post">
+        Name:<input type="text" name="username"><br>
+        Email:<input type="text" name="email" id="email"><br><span id="e"></span><br>
+        Password:<input type="password" name="password" id="pass"><br><span id="p"></span><br>
+        <input type="submit" value="submit">
+    </form>
+    <a href="/login">Login</a>
+    <script>
+        let password = document.getElementById("pass");
+        let email = document.getElementById("email");
+        const pspan = document.getElementById("p");
+        const espan = document.getElementById("e");
+
+
+        var specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+        function checkPassword() {
+
+            password.addEventListener("input", (e) => {
+                e.preventDefault();
+                let a = e.target.value;
+                console.log(a.length);
+                if (a.length < 9) {
+                    pspan.innerText = "password must be 8 digit";
+                } else if (!specialCharPattern.test(a)) {
+                    pspan.innerText = "password must be one speacial charecter"
+                }
+                else if (a.length > 9) {
+                    pspan.innerText = ""
+                }
+            })
+
+        }
+
+
+        function checkemail() {
+
+            email.addEventListener("input", (e) => {
+                e.preventDefault();
+                let a = e.target.value;
+                if (!emailPattern.test(a)) {
+                    espan.innerText = "enter valid email";
+                } else {
+                    espan.innerText = "";
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

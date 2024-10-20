@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Home Page</h1>
+    <h1>HI..<span><%=name%></span></h1>
+    
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="filename" required>
+        <input type="submit" value="submit">
+    </form>
+    
+   
+    <a href="/logout">Logout</a>
+    
+    <!-- <script src="home.js"></script> -->
+</body>
+</html>
