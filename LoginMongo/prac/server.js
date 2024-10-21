@@ -1,5 +1,5 @@
 const express = require("express");
-const sessino = require("express-session");
+const session = require("express-session");
 const path = require("path");
 const fs = require("fs");
 const mongoose = require("mongoose");
